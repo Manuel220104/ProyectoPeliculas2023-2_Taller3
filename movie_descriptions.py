@@ -1,8 +1,9 @@
 #importar librerías
-import os
-import openai
 import json
-from dotenv import load_dotenv, find_dotenv
+import os
+
+import openai
+from dotenv import find_dotenv, load_dotenv
 
 #Se lee del archivo .env la api key de openai
 _ = load_dotenv('openAI.env')

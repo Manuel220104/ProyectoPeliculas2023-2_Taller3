@@ -17,7 +17,19 @@ with open('movie_descriptions_embeddings.json', 'r') as file:
 emb = get_embedding(movies[1]['description'],engine='text-embedding-ada-002')
 print(emb)
 
-#Vamos a crear una nueva llave con el embedding de la descripción de cada película en el archivo .json
+# #Vamos a crear una nueva llave con el embedding de la descripción de cada película en el archivo .json
+
+# for i in range(len(movies)):
+#   emb = get_embedding(movies[i]['description'],engine='text-embedding-ada-002')
+#   movies[i]['embedding'] = emb
+
+
+# #Vamos a almacenar esta información en un nuevo archivo .json
+# with open('movie_descriptions_embeddings.json', 'r') as file:
+#     file_content = file.read()
+#     movies = json.loads(file_content)
+
+# print(movies[0])
 
 #Para saber cuáles películas se parecen más, podemos hacer lo siguiente:
 print(movies[27]['title'])
@@ -44,4 +56,3 @@ for i in range(len(movies)):
 sim = np.array(sim)
 idx = np.argmax(sim)
 print(movies[idx]['title'])
-

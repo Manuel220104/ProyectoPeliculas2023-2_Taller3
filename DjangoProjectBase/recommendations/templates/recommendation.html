@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Escribe que tipo de pelicula te gusta para recibir una recomendacion</h1>
+    <form class="mt-5" method="post" action="{% url 'recommendations' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control mb-5" id="tipo_pelicula" name="tipo_pelicula" placeholder="Escribe aqui">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar </button>
+    </form>
+    {% if respuestas %}
+    <div class="mt-3">
+        <h2 class="">Recomendación:</h2>
+        <div class="d-block w-100">
+          {{ respuestas.texto }}
+        </div>
+        <img src="{{ respuestas.image_url }}" alt="Imagen generada" class="img-fluid">
+      </div>
+      
+    {% endif %}
+</div>
+
+{% endblock %}
